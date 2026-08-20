@@ -1,6 +1,29 @@
+window.addEventListener('load', () => {
+  const preloader = document.querySelector('.preloader');
+  if (preloader) {
+    setTimeout(() => {
+      preloader.style.display = 'none';
+    }, 3000);
+  }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
-  if (document.body.classList.contains('awakening-stage')) {
+  const isAwakeningStage = document.body.classList.contains('awakening-stage');
+
+  if (isAwakeningStage) {
     console.log('SYNTHESIS awakening sequence started');
+
+    const sound = document.getElementById('awakening-sound');
+
+    setTimeout(() => {
+      if (sound) {
+        sound.volume = 0.4;
+        sound.play().catch(() => {
+          console.log('Audio blocked until interaction; awakening pulse skipped.');
+        });
+      }
+      console.log('Awakening sound pulse triggered');
+    }, 4500);
 
     setTimeout(() => {
       console.log('SYNTHESIS awakening sequence complete');
@@ -8,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 8000);
   }
 
-  if (document.body.classList.contains('intro-body')) {
+  if (document.body.classList.contains('intro-body') && !isAwakeningStage) {
     setTimeout(() => {
       console.log('SYNTHESIS awakening sequence complete');
       window.location.href = 'index.html';
