@@ -113,6 +113,39 @@ if (!window.__synthesisMainInitialized) {
     }
   }
 
+  const noiseCanvas = document.getElementById('quantum-noise');
+  if (noiseCanvas) {
+    const noiseContext = noiseCanvas.getContext('2d');
+
+    if (noiseContext) {
+      function resizeNoise() {
+        noiseCanvas.width = window.innerWidth;
+        noiseCanvas.height = window.innerHeight;
+      }
+
+      function renderNoise() {
+        const imageData = noiseContext.createImageData(noiseCanvas.width, noiseCanvas.height);
+        const buffer = imageData.data;
+        const time = Date.now() * 0.0004;
+
+        for (let index = 0; index < buffer.length; index += 4) {
+          const value = Math.random() * 255;
+          buffer[index] = value * 0.4;
+          buffer[index + 1] = value * 0.8;
+          buffer[index + 2] = 255;
+          buffer[index + 3] = (Math.sin(index * 0.00002 + time) * 60) + 40;
+        }
+
+        noiseContext.putImageData(imageData, 0, 0);
+        requestAnimationFrame(renderNoise);
+      }
+
+      resizeNoise();
+      window.addEventListener('resize', resizeNoise);
+      requestAnimationFrame(renderNoise);
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     const isAwakeningStage = document.body.classList.contains('awakening-stage');
 
