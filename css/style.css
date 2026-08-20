@@ -454,31 +454,63 @@ header {
   padding: 80px 20px;
 }
 
-.hero-panel {
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  margin: 40px auto 24px;
-  padding: 0 20px;
-  text-align: center;
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-.hero-panel img {
+.hero-text {
+  flex: 1;
+}
+
+.hero-visual {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.hero-visual img {
   width: 100%;
   border-radius: 12px;
-  filter: drop-shadow(0 0 25px rgba(0, 170, 255, 0.45));
   opacity: 0.95;
+  filter: drop-shadow(0 0 28px rgba(0, 170, 255, 0.55));
   transition: 0.4s ease;
 }
 
-.hero-panel img:hover {
-  filter: drop-shadow(0 0 35px rgba(127, 0, 255, 0.55));
+.hero-visual img:hover {
+  opacity: 0.95;
   opacity: 1;
+  transform: translateY(-4px);
+  filter: drop-shadow(0 0 36px rgba(127, 0, 255, 0.7));
 }
 
-.intro-hero-panel {
+@media (min-width: 900px) {
+  .hero-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .hero-text {
+    text-align: left;
+  }
+}
+
+.intro-visual img {
+  width: 100%;
   max-width: 720px;
-  margin: 32px auto;
+  margin: 40px auto 0;
+  display: block;
+  border-radius: 14px;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 26px rgba(0, 170, 255, 0.5));
+  transition: 0.4s ease;
+}
+
+.intro-visual img:hover {
+  opacity: 1;
+  transform: translateY(-3px);
 }
 
 .hero-logo {
@@ -1182,15 +1214,16 @@ textarea {
 
 .module-poster {
   width: 100%;
-  border-radius: 10px;
-  margin-bottom: 15px;
+  border-radius: 12px;
+  margin-bottom: 16px;
   opacity: 0.9;
   transition: 0.3s ease;
 }
 
 .module-card:hover .module-poster {
   opacity: 1;
-  filter: drop-shadow(0 0 20px rgba(0, 170, 255, 0.45));
+  filter: drop-shadow(0 0 22px rgba(0, 170, 255, 0.55));
+  transform: translateY(-3px);
 }
 
 .hud {
@@ -1243,17 +1276,18 @@ textarea {
   opacity: 0.85;
 }
 
-.hud-hologram {
-  width: min(100%, 180px);
-  margin: 0 auto 18px;
+.hud-visual img {
+  width: 100%;
+  border-radius: 12px;
   opacity: 0.85;
   mix-blend-mode: screen;
   transition: 0.3s ease;
 }
 
-.hud-panel:hover .hud-hologram {
+.hud-panel:hover .hud-visual img {
   opacity: 1;
-  filter: drop-shadow(0 0 25px rgba(127, 0, 255, 0.55));
+  filter: drop-shadow(0 0 26px rgba(127, 0, 255, 0.7));
+  transform: translateY(-3px);
 }
 
 .connect {
@@ -1276,11 +1310,34 @@ textarea {
 
 .connect-visual img {
   width: 100%;
-  max-width: 500px;
+  max-width: 520px;
   margin: 0 auto 40px;
   display: block;
-  opacity: 0.85;
-  filter: drop-shadow(0 0 20px rgba(0, 170, 255, 0.45));
+  border-radius: 14px;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 24px rgba(0, 170, 255, 0.55));
+  transition: 0.3s ease;
+}
+
+.connect-visual img:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+.awakening-visual img {
+  width: 100%;
+  max-width: 780px;
+  margin: 40px auto;
+  display: block;
+  border-radius: 16px;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 30px rgba(0, 170, 255, 0.6));
+  transition: 0.4s ease;
+}
+
+.awakening-visual img:hover {
+  opacity: 1;
+  transform: translateY(-4px);
 }
 
 .connect-form {
@@ -1333,13 +1390,13 @@ textarea {
   font-size: 0.9rem;
 }
 
-.brand-watermark {
+.brand-mark {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 80px;
-  opacity: 0.6;
-  filter: drop-shadow(0 0 15px rgba(127, 0, 255, 0.45));
+  bottom: 18px;
+  right: 18px;
+  width: 64px;
+  opacity: 0.55;
+  filter: drop-shadow(0 0 18px rgba(127, 0, 255, 0.6));
   pointer-events: none;
   z-index: 4;
 }
