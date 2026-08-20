@@ -24,7 +24,13 @@ html {
 }
 
 body {
-  background: radial-gradient(circle at top, #0f0f1a, #050510);
+  background-color: #050510;
+  background-image:
+    linear-gradient(180deg, rgba(5, 8, 18, 0.72), rgba(5, 8, 18, 0.86)),
+    url('../assets/synthesis/Copilot_20260820_210234.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
   color: #e0e0ff;
   font-family: 'Orbitron', sans-serif;
@@ -1243,6 +1249,17 @@ textarea {
 
 .module-card p {
   opacity: 0.85;
+}
+
+.module-card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.module-card-link:focus-visible {
+  outline: 2px solid rgba(121, 231, 255, 0.95);
+  outline-offset: 4px;
 }
 
 .module-poster {
