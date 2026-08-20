@@ -1,4 +1,6 @@
 window.addEventListener('load', () => {
+  console.log('Boot sequence initiated');
+
   const preloader = document.querySelector('.preloader');
   if (preloader) {
     setTimeout(() => {
@@ -11,24 +13,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const isAwakeningStage = document.body.classList.contains('awakening-stage');
 
   if (isAwakeningStage) {
-    console.log('SYNTHESIS awakening sequence started');
-
     const sound = document.getElementById('awakening-sound');
 
     setTimeout(() => {
-      if (sound) {
-        sound.volume = 0.4;
-        sound.play().catch(() => {
-          console.log('Audio blocked until interaction; awakening pulse skipped.');
-        });
+      try {
+        if (sound) {
+          sound.volume = 0.5;
+          sound.play();
+        }
+      } catch (e) {
+        console.log('Autoplay blocked, fallback visuals active');
       }
+
       console.log('Awakening sound pulse triggered');
     }, 4500);
 
     setTimeout(() => {
-      console.log('SYNTHESIS awakening sequence complete');
+      console.log('Awakening complete — redirecting');
       window.location.href = 'index.html';
-    }, 8000);
+    }, 8200);
   }
 
   if (document.body.classList.contains('intro-body') && !isAwakeningStage) {

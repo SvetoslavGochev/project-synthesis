@@ -74,6 +74,51 @@ body {
   opacity: 0.8;
 }
 
+.glitch-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,0.03) 0px,
+    rgba(255,255,255,0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  animation: glitchPulse 2s infinite;
+  z-index: 9000;
+}
+
+.scanlines {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.2) 0px,
+    rgba(0, 0, 0, 0.2) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events: none;
+  z-index: 8999;
+  animation: scanMove 6s linear infinite;
+}
+
+.boot-console {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  font-family: monospace;
+  color: #00aaff;
+  font-size: 0.9rem;
+  opacity: 0;
+  animation: consoleFade 3s ease forwards 1.5s;
+  z-index: 9500;
+}
+
 .intro-container {
   text-align: center;
   animation: fadeIn 3s ease forwards;
@@ -118,7 +163,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 0 25px #00aaff;
   opacity: 0;
-  animation: eyesOpen 2.5s ease forwards 4.5s;
+  animation: eyeBlink 1.2s ease forwards 4.5s, eyeScan 2s ease forwards 5.7s;
 }
 
 .awakening-title {
@@ -128,6 +173,17 @@ body {
   letter-spacing: 0.2rem;
   opacity: 0;
   animation: textFade 3s ease forwards 5s;
+}
+
+.energy-surge {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle, rgba(127,0,255,0.4), transparent 70%);
+  opacity: 0;
+  animation: surgeFlash 1.2s ease forwards 6.2s;
+  pointer-events: none;
+  z-index: 9998;
 }
 
 @keyframes fadeIn {
@@ -157,12 +213,48 @@ body {
   100% { opacity: 1; box-shadow: 0 0 20px #7f00ff; }
 }
 
+@keyframes eyeBlink {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  40% { opacity: 0; }
+  60% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+@keyframes eyeScan {
+  0% { box-shadow: 0 0 10px #00aaff; }
+  50% { box-shadow: 0 0 40px #7f00ff; }
+  100% { box-shadow: 0 0 20px #00aaff; }
+}
+
+@keyframes glitchPulse {
+  0% { opacity: 0.1; }
+  50% { opacity: 0.25; }
+  100% { opacity: 0.1; }
+}
+
+@keyframes scanMove {
+  from { background-position: 0 0; }
+  to { background-position: 0 200px; }
+}
+
+@keyframes consoleFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
 
 @keyframes preloaderFadeOut {
   to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes surgeFlash {
+  0% { opacity: 0; }
+  40% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 body::before {
