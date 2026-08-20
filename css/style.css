@@ -1284,6 +1284,66 @@ textarea {
   margin: 0 auto 50px;
 }
 
+/* ============================= */
+/* INTERFACE HERO BACKGROUND     */
+/* ============================= */
+
+.interface-hero {
+  position: relative;
+  min-height: 420px;
+  border-radius: 18px;
+  overflow: hidden;
+  background-image: url('/assets/synthesis/Copilot_20260814_001853.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* tъmen + holografski sloy za chetimost */
+.interface-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(0, 200, 255, 0.35), transparent 55%),
+    rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 0;
+}
+
+/* konteyner za dvoynite nadpisi */
+.interface-overlay {
+  position: relative;
+  z-index: 1;
+  padding: 60px 40px;
+}
+
+/* osnoven nadpis */
+.interface-title-primary {
+  font-size: 2.4rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #e9f7ff;
+  text-shadow: 0 0 18px rgba(0, 200, 255, 0.8);
+  margin: 0 0 12px;
+}
+
+/* vtorichen nadpis */
+.interface-title-secondary {
+  font-size: 1.1rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(200, 230, 255, 0.85);
+  text-shadow: 0 0 12px rgba(127, 0, 255, 0.7);
+  margin: 0;
+}
+
+/* lek hover motion */
+.interface-hero:hover .interface-overlay {
+  transform: translateY(-4px);
+  transition: transform 0.35s ease;
+}
+
 .hud-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
