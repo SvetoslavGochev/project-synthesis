@@ -9,6 +9,46 @@ window.addEventListener('load', () => {
   }
 });
 
+document.addEventListener('mousemove', (e) => {
+  const trail = document.createElement('div');
+  trail.classList.add('cursor-trail');
+  document.body.appendChild(trail);
+
+  trail.style.left = `${e.pageX}px`;
+  trail.style.top = `${e.pageY}px`;
+
+  setTimeout(() => {
+    trail.style.opacity = '0';
+  }, 150);
+
+  setTimeout(() => {
+    trail.remove();
+  }, 400);
+});
+
+function spawnParticle() {
+  const engine = document.getElementById('particle-engine');
+  if (!engine) return;
+
+  const particle = document.createElement('div');
+  particle.classList.add('particle');
+
+  const x = Math.random() * window.innerWidth;
+  const y = window.innerHeight + 20;
+
+  particle.style.left = `${x}px`;
+  particle.style.top = `${y}px`;
+
+  const duration = 2 + Math.random() * 3;
+  particle.style.animationDuration = `${duration}s`;
+
+  engine.appendChild(particle);
+
+  setTimeout(() => particle.remove(), duration * 1000);
+}
+
+setInterval(spawnParticle, 120);
+
 document.addEventListener('DOMContentLoaded', () => {
   const isAwakeningStage = document.body.classList.contains('awakening-stage');
 

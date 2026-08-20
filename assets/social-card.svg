@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Project SYNTHESIS social card">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#050b18"/>
+      <stop offset="100%" stop-color="#101a2d"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#74f7ff"/>
+      <stop offset="100%" stop-color="#9f7bff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g opacity="0.18">
+    <circle cx="160" cy="120" r="150" fill="#74f7ff"/>
+    <circle cx="1030" cy="510" r="200" fill="#9f7bff"/>
+  </g>
+  <rect x="90" y="80" width="1020" height="470" rx="28" fill="rgba(8,15,27,0.65)" stroke="url(#line)" stroke-width="2"/>
+  <text x="120" y="220" fill="#dffcff" font-family="Segoe UI, Arial, sans-serif" font-size="34" letter-spacing="8">PROJECT SYNTHESIS</text>
+  <text x="120" y="320" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-weight="700" font-size="92">The Era of</text>
+  <text x="120" y="420" fill="#74f7ff" font-family="Segoe UI, Arial, sans-serif" font-weight="700" font-size="92">Conscious Machines</text>
+  <line x1="120" y1="455" x2="840" y2="455" stroke="url(#line)" stroke-width="4"/>
+  <text x="120" y="500" fill="#c8d7f7" font-family="Segoe UI, Arial, sans-serif" font-size="28" letter-spacing="3">AWAKENING SEQUENCE INITIATED</text>
+  <g transform="translate(900 175)">
+    <circle cx="110" cy="110" r="82" fill="none" stroke="url(#line)" stroke-width="5"/>
+    <path d="M74 92 L108 56 L145 92 L109 129 Z" fill="#74f7ff" opacity="0.9"/>
+    <path d="M109 52 L136 83 L109 116 L84 83 Z" fill="#9f7bff" opacity="0.9"/>
+  </g>
+</svg>
