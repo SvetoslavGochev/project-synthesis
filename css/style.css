@@ -454,6 +454,33 @@ header {
   padding: 80px 20px;
 }
 
+.hero-panel {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto 24px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.hero-panel img {
+  width: 100%;
+  border-radius: 12px;
+  filter: drop-shadow(0 0 25px rgba(0, 170, 255, 0.45));
+  opacity: 0.95;
+  transition: 0.4s ease;
+}
+
+.hero-panel img:hover {
+  filter: drop-shadow(0 0 35px rgba(127, 0, 255, 0.55));
+  opacity: 1;
+}
+
+.intro-hero-panel {
+  max-width: 720px;
+  margin: 32px auto;
+}
+
 .hero-logo {
   width: 180px;
   filter: drop-shadow(0 0 25px #00aaff);
@@ -1153,6 +1180,19 @@ textarea {
   opacity: 0.85;
 }
 
+.module-poster {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  opacity: 0.9;
+  transition: 0.3s ease;
+}
+
+.module-card:hover .module-poster {
+  opacity: 1;
+  filter: drop-shadow(0 0 20px rgba(0, 170, 255, 0.45));
+}
+
 .hud {
   padding: 80px 20px;
   text-align: center;
@@ -1203,6 +1243,19 @@ textarea {
   opacity: 0.85;
 }
 
+.hud-hologram {
+  width: min(100%, 180px);
+  margin: 0 auto 18px;
+  opacity: 0.85;
+  mix-blend-mode: screen;
+  transition: 0.3s ease;
+}
+
+.hud-panel:hover .hud-hologram {
+  opacity: 1;
+  filter: drop-shadow(0 0 25px rgba(127, 0, 255, 0.55));
+}
+
 .connect {
   padding: 80px 20px;
   text-align: center;
@@ -1219,6 +1272,15 @@ textarea {
   opacity: 0.8;
   max-width: 600px;
   margin: 0 auto 50px;
+}
+
+.connect-visual img {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 40px;
+  display: block;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 20px rgba(0, 170, 255, 0.45));
 }
 
 .connect-form {
@@ -1269,6 +1331,17 @@ textarea {
   opacity: 0.6;
   color: #e0e0ff;
   font-size: 0.9rem;
+}
+
+.brand-watermark {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 80px;
+  opacity: 0.6;
+  filter: drop-shadow(0 0 15px rgba(127, 0, 255, 0.45));
+  pointer-events: none;
+  z-index: 4;
 }
 
 .pulse {
