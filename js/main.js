@@ -79,6 +79,40 @@ if (!window.__synthesisMainInitialized) {
 
   setInterval(spawnParticle, 120);
 
+  const gridCanvas = document.getElementById('energy-grid');
+  if (gridCanvas) {
+    const gridContext = gridCanvas.getContext('2d');
+
+    if (gridContext) {
+      function resizeGrid() {
+        gridCanvas.width = window.innerWidth;
+        gridCanvas.height = window.innerHeight;
+      }
+
+      function drawGrid() {
+        gridContext.clearRect(0, 0, gridCanvas.width, gridCanvas.height);
+
+        const spacing = 40;
+        const time = Date.now() * 0.002;
+
+        for (let x = 0; x < gridCanvas.width; x += spacing) {
+          for (let y = 0; y < gridCanvas.height; y += spacing) {
+            const pulse = Math.sin((x + y) * 0.01 + time) * 0.5 + 0.5;
+
+            gridContext.fillStyle = `rgba(0, 170, 255, ${pulse * 0.35})`;
+            gridContext.fillRect(x, y, 2, 2);
+          }
+        }
+
+        requestAnimationFrame(drawGrid);
+      }
+
+      resizeGrid();
+      window.addEventListener('resize', resizeGrid);
+      requestAnimationFrame(drawGrid);
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     const isAwakeningStage = document.body.classList.contains('awakening-stage');
 
