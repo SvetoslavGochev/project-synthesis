@@ -31,6 +31,24 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, p, a, button, input, textarea {
+  text-shadow: none;
+}
+
+.nav-logo,
+.hero-title,
+.section-head h2,
+.page-title,
+.hud-title,
+.connect-title,
+.modules-title {
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 12px rgba(121, 231, 255, 0.18), 0 0 20px rgba(157, 125, 255, 0.12);
 }
 
 .intro-body {
