@@ -30,32 +30,6 @@ if (!window.__synthesisMainInitialized) {
     }
   });
 
-  document.addEventListener('mousemove', (e) => {
-    const trail = document.createElement('div');
-    trail.classList.add('cursor-trail');
-    document.body.appendChild(trail);
-
-    trail.style.left = `${e.pageX}px`;
-    trail.style.top = `${e.pageY}px`;
-
-    document.querySelectorAll('.holo-hover').forEach((element) => {
-      const rect = element.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      element.style.setProperty('--mx', `${x}px`);
-      element.style.setProperty('--my', `${y}px`);
-    });
-
-    setTimeout(() => {
-      trail.style.opacity = '0';
-    }, 150);
-
-    setTimeout(() => {
-      trail.remove();
-    }, 400);
-  });
-
   function spawnParticle() {
     const engine = document.getElementById('particle-engine');
     if (!engine) return;
