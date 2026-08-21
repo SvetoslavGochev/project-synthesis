@@ -36,8 +36,14 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-h1, h2, h3, p, a, button, input, textarea {
-  text-shadow: none;
+html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, p, a, button, input, textarea, span, div {
+  text-shadow: none !important;
+  filter: none !important;
 }
 
 .nav-logo,
@@ -48,7 +54,18 @@ h1, h2, h3, p, a, button, input, textarea {
 .connect-title,
 .modules-title {
   letter-spacing: 0.04em;
-  text-shadow: 0 0 12px rgba(121, 231, 255, 0.18), 0 0 20px rgba(157, 125, 255, 0.12);
+  text-shadow: 0 0 6px rgba(121, 231, 255, 0.12), 0 0 12px rgba(157, 125, 255, 0.08);
+}
+
+.hud-panel,
+.info-panel,
+.poster,
+.module-card,
+.contact-card,
+.feed-card {
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 }
 
 .intro-body {
@@ -1284,21 +1301,15 @@ textarea {
 
 .hud-title {
   font-size: 2rem;
-  color: #ffffff;
-  text-shadow: 0 0 6px rgba(0, 170, 255, 0.22);
+  color: #00aaff;
+  text-shadow: 0 0 20px #00aaff;
   margin-bottom: 20px;
-  font-weight: 400;
-  letter-spacing: 0.08em;
 }
 
 .hud-subtitle {
-  opacity: 0.9;
+  opacity: 0.8;
   max-width: 600px;
   margin: 0 auto 50px;
-  color: #e6e6e6;
-  font-weight: 300;
-  letter-spacing: 0.5px;
-  text-shadow: none;
 }
 
 .hud-grid {
@@ -1310,35 +1321,27 @@ textarea {
 }
 
 .hud-panel {
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  border: 1px solid rgba(121, 231, 255, 0.18);
-  padding: 18px 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 18px rgba(121, 231, 255, 0.08);
+  background: rgba(10, 10, 25, 0.7);
+  border: 2px solid #7f00ff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(127, 0, 255, 0.4);
   transition: 0.3s;
 }
 
 .hud-panel:hover {
-  border-color: rgba(121, 231, 255, 0.3);
-  box-shadow: 0 0 22px rgba(121, 231, 255, 0.12);
-  transform: translateY(-4px);
+  border-color: #00aaff;
+  box-shadow: 0 0 35px rgba(0, 170, 255, 0.6);
+  transform: translateY(-8px);
 }
 
 .hud-panel h3 {
-  color: #ffffff;
+  color: #7f00ff;
   margin-bottom: 15px;
-  font-weight: 400;
-  text-shadow: 0 0 4px rgba(0, 255, 255, 0.15);
 }
 
 .hud-panel p {
-  opacity: 0.9;
-  color: #e6e6e6;
-  font-weight: 300;
-  letter-spacing: 0.5px;
-  text-shadow: none;
+  opacity: 0.85;
 }
 
 .hud-visual img {
