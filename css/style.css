@@ -1452,17 +1452,25 @@ textarea {
   display: block;
   width: 100%;
   border-radius: 12px;
-  opacity: 0.85;
-  mix-blend-mode: screen;
+  opacity: 1;
+  mix-blend-mode: normal;
   transition: 0.3s ease;
   object-fit: cover;
   aspect-ratio: 4 / 3;
+  border: 1px solid rgba(121, 231, 255, 0.18);
+  background: rgba(5, 12, 20, 0.7);
 }
 
 .hud-panel:hover .hud-visual img {
   opacity: 1;
   filter: drop-shadow(0 0 26px rgba(127, 0, 255, 0.7));
   transform: translateY(-3px);
+}
+
+.hud-panel--featured .hud-visual img {
+  box-shadow: 0 0 18px rgba(0, 170, 255, 0.18);
+  opacity: 1;
+  filter: drop-shadow(0 0 22px rgba(0, 170, 255, 0.45));
 }
 
 .connect {
