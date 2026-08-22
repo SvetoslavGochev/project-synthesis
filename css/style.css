@@ -54,7 +54,8 @@ h1, h2, h3, p, a, button, input, textarea, span, div {
 .connect-title,
 .modules-title {
   letter-spacing: 0.04em;
-  text-shadow: 0 0 6px rgba(121, 231, 255, 0.12), 0 0 12px rgba(157, 125, 255, 0.08);
+  color: #edf8ff;
+  text-shadow: 0 0 8px rgba(121, 231, 255, 0.12), 0 0 16px rgba(157, 125, 255, 0.08);
 }
 
 .hud-panel,
@@ -1227,6 +1228,8 @@ textarea {
   margin: 0;
   font-size: clamp(2.8rem, 5vw, 5rem);
   letter-spacing: -0.07em;
+  color: #edf8ff;
+  text-shadow: 0 0 10px rgba(121, 231, 255, 0.14), 0 0 18px rgba(157, 125, 255, 0.08);
 }
 
 .page-subtitle {
@@ -1242,66 +1245,121 @@ textarea {
 .modules-title {
   font-size: 2rem;
   margin-bottom: 40px;
-  color: #7f00ff;
-  text-shadow: 0 0 15px #7f00ff;
+  color: #ecf7ff;
+  text-shadow: 0 0 8px rgba(121, 231, 255, 0.18), 0 0 16px rgba(157, 125, 255, 0.12);
 }
 
 .module-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  max-width: 1200px;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  gap: 26px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
 .module-card {
-  background: rgba(20, 20, 40, 0.7);
-  padding: 30px;
-  border-radius: 12px;
-  border: 2px solid #00aaff;
-  box-shadow: 0 0 20px rgba(0, 170, 255, 0.4);
-  transition: 0.3s;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 430px;
+  padding: 24px 20px 28px;
+  background: linear-gradient(180deg, rgba(11, 18, 31, 0.96), rgba(12, 16, 27, 0.96));
+  border: 1px solid rgba(121, 231, 255, 0.24);
+  border-radius: 28px;
+  box-shadow: inset 0 0 0 1px rgba(121, 231, 255, 0.04), 0 20px 38px rgba(0, 0, 0, 0.3);
   overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .module-card::before {
   content: "";
   position: absolute;
-  inset: -20% 30% auto -20%;
-  height: 150%;
-  background: linear-gradient(90deg, transparent, rgba(121, 231, 255, 0.12), transparent);
-  transform: rotate(18deg);
-  pointer-events: none;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(121, 231, 255, 0.12), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
 }
 
 .module-card:hover {
-  border-color: #7f00ff;
-  box-shadow: 0 0 35px rgba(127, 0, 255, 0.6);
-  transform: translateY(-8px);
+  transform: translateY(-6px);
+  border-color: rgba(121, 231, 255, 0.34);
+  box-shadow: inset 0 0 0 1px rgba(121, 231, 255, 0.06), 0 22px 44px rgba(0, 0, 0, 0.34), 0 0 24px rgba(121, 231, 255, 0.06);
+}
+
+.module-card:hover::before {
+  opacity: 1;
+  animation: pulseGlow 1.6s ease-in-out infinite alternate;
+}
+
+.module-icon {
+  width: 100%;
+  max-width: 260px;
+  height: 188px;
+  border-radius: 18px;
+  position: relative;
+  background: linear-gradient(180deg, rgba(11, 18, 31, 0.98), rgba(17, 25, 45, 0.96));
+  border: 1px solid rgba(121, 231, 255, 0.32);
+  overflow: hidden;
+  box-shadow: inset 0 0 18px rgba(121, 231, 255, 0.05), 0 0 18px rgba(121, 231, 255, 0.06);
+}
+
+.module-icon::before,
+.module-icon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 62%;
+  height: 62%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border: 1px solid rgba(121, 231, 255, 0.9);
+  box-shadow: 0 0 12px rgba(121, 231, 255, 0.25);
+}
+
+.module-icon::after {
+  width: 44%;
+  height: 44%;
+  border-color: rgba(157, 125, 255, 0.82);
+}
+
+.module-icon--mind::before,
+.module-icon--mind::after {
+  border-color: rgba(121, 231, 255, 0.9);
+}
+
+.module-icon--link::before,
+.module-icon--link::after {
+  border-color: rgba(99, 198, 255, 0.92);
+}
+
+.module-icon--genesis::before,
+.module-icon--genesis::after {
+  border-color: rgba(171, 125, 255, 0.9);
 }
 
 .module-card h3 {
-  color: #00aaff;
-  margin-bottom: 15px;
+  margin: 0;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  line-height: 1.15;
+  color: #edfaff;
+  text-align: center;
+  letter-spacing: -0.04em;
+  text-shadow: 0 0 10px rgba(121, 231, 255, 0.1);
+  font-weight: 700;
 }
 
 .module-card p {
-  opacity: 0.85;
-}
-
-.module-poster {
-  width: 100%;
-  border-radius: 12px;
-  margin-bottom: 16px;
-  opacity: 0.9;
-  transition: 0.3s ease;
-}
-
-.module-card:hover .module-poster {
+  margin: 0;
+  max-width: 270px;
+  color: #d5ebfa;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  text-align: center;
   opacity: 1;
-  filter: drop-shadow(0 0 22px rgba(0, 170, 255, 0.55));
-  transform: translateY(-3px);
+  text-shadow: none;
 }
 
 .hud {
@@ -1324,42 +1382,81 @@ textarea {
 
 .hud-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 30px;
   max-width: 1100px;
   margin: 0 auto;
+  align-items: stretch;
 }
 
 .hud-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   background: rgba(10, 10, 25, 0.7);
-  border: 2px solid #7f00ff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 25px rgba(127, 0, 255, 0.4);
+  border: 2px solid rgba(127, 0, 255, 0.42);
+  padding: 22px 20px 18px;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(127, 0, 255, 0.18);
   transition: 0.3s;
+  min-height: 100%;
+}
+
+.hud-panel--featured {
+  border-color: rgba(121, 231, 255, 0.52);
+  box-shadow: 0 0 28px rgba(121, 231, 255, 0.16);
+}
+
+.hud-panel--empty {
+  background: rgba(12, 18, 28, 0.38);
+  border-color: rgba(121, 231, 255, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(121, 231, 255, 0.04);
 }
 
 .hud-panel:hover {
   border-color: #00aaff;
-  box-shadow: 0 0 35px rgba(0, 170, 255, 0.6);
+  box-shadow: 0 0 35px rgba(0, 170, 255, 0.22);
   transform: translateY(-8px);
 }
 
 .hud-panel h3 {
-  color: #7f00ff;
-  margin-bottom: 15px;
+  color: #dff7ff;
+  margin: 16px 0 8px;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(121, 231, 255, 0.08);
 }
 
 .hud-panel p {
-  opacity: 0.85;
+  margin: 0;
+  color: #d8ecfa;
+  line-height: 1.55;
+  opacity: 1;
+}
+
+.hud-visual {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.hud-visual--placeholder {
+  min-height: 220px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(17, 28, 40, 0.78), rgba(11, 17, 26, 0.72));
+  border: 1px solid rgba(121, 231, 255, 0.08);
 }
 
 .hud-visual img {
+  display: block;
   width: 100%;
   border-radius: 12px;
   opacity: 0.85;
   mix-blend-mode: screen;
   transition: 0.3s ease;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
 }
 
 .hud-panel:hover .hud-visual img {
